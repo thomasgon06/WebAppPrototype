@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="/process_exacttime">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="datetimepicker">Select a Date and Time</label>
+            <div class="input-group date" id="datetimepicker">
+                <input type="text" class="form-control" name="datetimepicker" required/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="secondInput">Enter a second value</label>
+                <input type="number" class="form-control" id="secondInput" name="secondInput" min="0" max="59" required>
+                <div class="valid-feedback">Valid input!</div>
+                <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="microInput">Enter a milisecond value</label>
+                <input type="number" class="form-control" id="miliInput" name="miliInput" min="0" max="999999" required>
+                <div class="valid-feedback">Valid input!</div>
+                <div class="invalid-feedback">Please enter an integer between 0 and 999999.</div>
+            </div>
+        </div>
+    </div>
+  
+    <button type="submit" id="sendDateTimeBtn" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Results</h1>
+    <br>
+    <ul style="list-style-type: none; padding-left: 20px;">
+    {% for doc in docs %}
+        <li>{{ doc }}</li>
+        <br>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
