@@ -1,35 +1,50 @@
 {% extends "base.html" %}
 
+{% block bar %} View All Data Read in at a Specific Moment in Time {% endblock %}
+
 {% block content %}
 <form method="POST" action="/process_exacttime">
-    <div class="row">
-        <div class="col-md-6">
-            <label for="datetimepicker">Select a Date and Time</label>
-            <div class="input-group date" id="datetimepicker">
-                <input type="text" class="form-control" name="datetimepicker" required/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="secondInput">Enter a second value</label>
-                <input type="number" class="form-control" id="secondInput" name="secondInput" min="0" max="59" required>
-                <div class="valid-feedback">Valid input!</div>
-                <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="miliInput">Enter a milisecond value</label>
-                <input type="number" class="form-control" id="miliInput" name="miliInput" min="0" max="999" required>
-                <div class="valid-feedback">Valid input!</div>
-                <div class="invalid-feedback">Please enter an integer between 0 and 999.</div>
-            </div>
-        </div>
+  <div class="row">
+
+
+    <div class="col-md-6">
+
+    <label for="datetimepicker">Enter a Date and Time: </label>
+    <input type="date" id="datetimepicker" name="datetimepicker" placeholder="Enter Date and Time " style = "margin-bottom: 20px" required>
     </div>
+
+    <br>
+
+    <div class="form-group">
+      <div class="form-group">
+        <label for="secondInput">Enter a Second Value:</label>
+        <input type="number" class="form-control" id="secondInput" name="secondInput" min="0" max="59" required>
+        <div class="valid-feedback">Valid input!</div>
+        <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="miliInput">Enter a Millisecond Value:</label>
+        <input type="number" class="form-control" id="miliInput" name="miliInput" min="0" max="999" required>
+        <div class="valid-feedback">Valid input!</div>
+        <div class="invalid-feedback">Please enter an integer between 0 and 999.</div>
+      </div>
+    </div>
+  </div>
   
-    <button type="submit" id="sendDateTimeBtn" class="btn btn-primary">Submit</button>
+  <br>
+  <button type="submit" id="sendDateTimeBtn" class="btn btn-primary">Submit</button>
 </form>
+
+<style>
+   
+
+  #sendDateTimeBtn {
+      max-width: 150px; 
+  }
+
+  .form-control {
+      width: 200px; 
+  }
+</style>
 {% endblock %}

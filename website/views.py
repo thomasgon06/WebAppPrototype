@@ -6,6 +6,7 @@ import random
 import pprint
 from pymongo import MongoClient
 from datetime import datetime
+from flask import Flask, send_file
 
 
 connection_string = "mongodb://localhost:27017/"
@@ -38,6 +39,14 @@ def voltage():
 def voltagerange():
     return render_template("voltagerange.html")
 
+@views.route('/house')
+def returnimage():
+    return send_file('images/home.png', mimetype='image/png')
+
+@views.route('/icon')
+def returnicon():
+    return send_file('images/icon.png', mimetype='image/png')
+
 
 @views.route('/alldata')
 def alldata():
@@ -57,7 +66,9 @@ def alldata():
 @views.route('/process_date', methods=['POST'])
 def process_datet():
     datetime_string = request.form['datepicker']
-    datetime_object = datetime.strptime(datetime_string, '%m/%d/%Y')
+    print(datetime_string)
+    datetime_object = datetime.strptime(datetime_string, "%B %d %Y")
+   
 
     collection = current_db.SensorInfo
 
@@ -66,10 +77,11 @@ def process_datet():
 
     docs = list(collection.find({ "Date Recorded" : {'$gte': start_of_day,'$lte': end_of_day} }, {'_id': 0}).sort('Date Recorded', -1))
     for doc in docs:
-        if 'Date Recorded' in doc:  
-            doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
+       if 'Date Recorded' in doc:  
+          doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
 
     return render_template("results.html", docs = docs)
+   
 
 
 @views.route('/process_exacttime', methods=['POST'])
@@ -78,7 +90,7 @@ def process_exacttime():
     sec = int(request.form['secondInput'])
     mili = int(request.form['miliInput'])
    
-    datetime_object = datetime.strptime(datetime_string, '%m/%d/%Y %I:%M %p')
+    datetime_object = datetime.strptime(datetime_string, '%B %d %Y %I:%M %p')
 
     collection = current_db.SensorInfo
 
@@ -100,14 +112,14 @@ def process_timerange():
     sec = int(request.form['secondInput'])
     mili = int(request.form['miliInput'])
     micro = mili * 1000
-    first_datetime_object = datetime.strptime(first_datetime_string, '%m/%d/%Y %I:%M %p')
+    first_datetime_object = datetime.strptime(first_datetime_string, '%B %d %Y %I:%M %p')
     starttime = first_datetime_object.replace(second=sec, microsecond=micro)
 
     second_datetime_string = request.form['datetimepicker2']
     sec2 = int(request.form['secondInput2'])
     mili2 = int(request.form['miliInput2'])
     micro2 = mili2 * 1000
-    second_datetime_object = datetime.strptime(second_datetime_string, '%m/%d/%Y %I:%M %p')
+    second_datetime_object = datetime.strptime(second_datetime_string, '%B %d %Y %I:%M %p')
     endtime = second_datetime_object.replace(second=sec2, microsecond=micro2)
 
 
