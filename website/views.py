@@ -16,7 +16,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-   return render_template("home.html")
+   return render_template("index.html")
 
 @views.route('/dateselect')
 def dateselect():
@@ -39,8 +39,8 @@ def voltagerange():
     return render_template("voltagerange.html")
 
 
-@views.route('/results')
-def results():
+@views.route('/alldata')
+def alldata():
     
     collection = current_db.SensorInfo
 
