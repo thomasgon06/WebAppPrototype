@@ -44,31 +44,29 @@
     <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-  <script>
-      flatpickr('#datetimepicker', {
-        enableTime: true,
-        dateFormat: "F j Y h:i K", // Format: month day year time
-        time_24hr: false, // Use 12-hour format
-        allowInput: false
-    });
-  </script>
-
-<script>
-  flatpickr('#datetimepicker2', {
-    enableTime: true,
-    dateFormat: "F j Y h:i K", // Format: month day year time
-    time_24hr: false, // Use 12-hour format
-    allowInput: false
-});
-</script>
 
   <script>
-    flatpickr('#datepicker', {
-      dateFormat: "F j Y", // Format: month day year time
-      time_24hr: false, // Use 12-hour format
+    flatpickr('#datetimepicker', {
+      enableTime: true,
+      dateFormat: "F j Y h:i K", 
+      time_24hr: false, 
       allowInput: false
-  });
-</script>
+    });
+
+    flatpickr('#datetimepicker2', {
+      enableTime: true,
+      dateFormat: "F j Y h:i K", 
+      time_24hr: false, 
+      allowInput: false
+    });
+
+    flatpickr('#datepicker', {
+      dateFormat: "F j Y", 
+      time_24hr: false, 
+      allowInput: false
+    });
+
+  </script>
   
 
   </body>

@@ -3,14 +3,16 @@
 {% block bar %} View All Data Read in at a Specific Moment in Time {% endblock %}
 
 {% block content %}
+
+<h3>Time Select</h3>
 <form method="POST" action="/process_exacttime">
   <div class="row">
 
 
     <div class="col-md-6">
 
-    <label for="datetimepicker">Enter a Date and Time: </label>
-    <input type="date" id="datetimepicker" name="datetimepicker" placeholder="Enter Date and Time " style = "margin-bottom: 20px" required>
+    <label for="datetimepicker">Date and Time: </label>
+    <input type="date" id="datetimepicker" name="datetimepicker" style = "margin-bottom: 20px" required>
     </div>
 
     <br>
@@ -44,7 +46,7 @@
   }
 
   .form-control {
-      width: 200px; 
+      width: 210px; 
   }
 </style>
 {% endblock %}
