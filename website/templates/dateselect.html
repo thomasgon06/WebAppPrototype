@@ -5,11 +5,11 @@
 {% block content %}
 
 <h3>Date Select</h3>
-<br>
+
 <form method="POST" action="/process_date">
     <div class="col-md-6">
         <label for="datetpicker">Enter a Date: </label>
-        <input type="date" id="datepicker" name="datepicker" style = "margin-bottom: 20px" required>
+        <input type="date" id="datepicker" name="datepicker" class="form-control" style = "margin-bottom: 20px" required>
     </div>
 
     <div class="row mt-3"> 
@@ -25,6 +25,10 @@
     #sendDateBtn {
         max-width: 150px; 
     }
+
+    .form-control {
+      width: 210px; 
+  }
 
 </style>
 
