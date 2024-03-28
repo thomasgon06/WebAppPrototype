@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %} Voltage {% endblock %}
+
 {% block bar %} View All Documents With a Given Voltage {% endblock %}
 
 {% block content %}
@@ -9,7 +11,7 @@
 <form method="POST" action="/findvoltage">
     
     <div class="form-group" style = "margin-bottom: 20px">
-        <label for="voltageInput">Enter a voltage</label>
+        <label for="voltageInput">Enter a voltage:</label>
         <input type="number" class="form-control" id="voltageInput" name="voltageInput" step="any" required>
         <div class="invalid-feedback">Please enter a number</div>
     </div>

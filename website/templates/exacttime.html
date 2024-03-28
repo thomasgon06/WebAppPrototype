@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %} Specific Time {% endblock %}
+
 {% block bar %} View All Data Read in at a Specific Moment in Time {% endblock %}
 
 {% block content %}
@@ -21,14 +23,12 @@
       <div class="form-group">
         <label for="secondInput">Enter a Second Value:</label>
         <input type="number" class="form-control" id="secondInput" name="secondInput" min="0" max="59" required>
-        <div class="valid-feedback">Valid input!</div>
         <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
       </div>
       <br>
       <div class="form-group">
         <label for="miliInput">Enter a Millisecond Value:</label>
         <input type="number" class="form-control" id="miliInput" name="miliInput" min="0" max="999" required>
-        <div class="valid-feedback">Valid input!</div>
         <div class="invalid-feedback">Please enter an integer between 0 and 999.</div>
       </div>
     </div>

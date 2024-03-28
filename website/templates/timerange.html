@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %} Time Range {% endblock %}
+
 {% block bar %} View All Data That Was Read During a Range of Time{% endblock %}
 
 {% block content %}
@@ -13,16 +15,14 @@
         </div>
 
         <div class="col-md-2">
-            <label for="secondInput">Enter a second value</label>
+            <label for="secondInput">Enter a second value:</label>
             <input type="number" class="form-control" id="secondInput" name="secondInput" min="0" max="59" required>
-            <div class="valid-feedback">Valid input!</div>
             <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
         </div>
 
         <div class="col-md-2">
-            <label for="miliInput">Enter a millisecond value</label>
+            <label for="miliInput">Enter a millisecond value:</label>
             <input type="number" class="form-control" id="miliInput" name="miliInput" min="0" max="999" required>
-            <div class="valid-feedback">Valid input!</div>
             <div class="invalid-feedback">Please enter an integer between 0 and 999.</div>
         </div>
     </div>
@@ -38,16 +38,14 @@
         </div>
     
         <div class="col-md-2">
-            <label for="secondInput2">Enter a second value</label>
+            <label for="secondInput2">Enter a second value:</label>
             <input type="number" class="form-control" id="secondInput2" name="secondInput2" min="0" max="59" required>
-            <div class="valid-feedback">Valid input!</div>
             <div class="invalid-feedback">Please enter an integer between 0 and 59.</div>
         </div>
 
         <div class="col-md-2">
-            <label for="miliInput2">Enter a millisecond value</label>
+            <label for="miliInput2">Enter a millisecond value:</label>
             <input type="number" class="form-control" id="miliInput2" name="miliInput2" min="0" max="999" required>
-            <div class="valid-feedback">Valid input!</div>
             <div class="invalid-feedback">Please enter an integer between 0 and 999.</div>
         </div>
     </div>
