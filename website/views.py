@@ -48,6 +48,21 @@ def returnicon():
     return send_file('images/icon.png', mimetype='image/png')
 
 
+@views.route('/misbehaving')
+def misbehaving():
+    collection = current_db.SensorInfo
+    badtemps = list(collection.find({"Temperature": {"$not": {"$gte": 18, "$lte": 28}}},{'_id': 0}).sort('Date Recorded', -1))
+    badvoltages = list(collection.find({"Voltage": {"$not": {"$gte": 1000, "$lte": 1400}}},{'_id': 0}).sort('Date Recorded', -1))
+    badadc = list(collection.find({"ADC": {"$not": {"$gte": 1200, "$lte": 1250}}},{'_id': 0}).sort('Date Recorded', -1))
+    combined = badtemps + badvoltages + badadc
+    docs = []
+    [docs.append(x) for x in combined if x not in docs]
+    for doc in docs:
+        if 'Date Recorded' in doc:  
+            doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
+    return render_template('results.html', docs=docs)
+
+
 @views.route('/alldata')
 def alldata():
     
