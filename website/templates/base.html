@@ -68,28 +68,35 @@
       allowInput: false
     });
 
-  $(document).ready(function() {
-      $.ajax({
-          url: '/data',
-          type: 'GET',
-          success: function(data) {
-              var ctx = document.getElementById('myChart').getContext('2d');
-              var myChart = new Chart(ctx, {
-                  type: 'line',
-                  data: {
-                      labels: data.x,
-                      datasets: [{
-                          label: 'Voltage',
-                          data: data.y,
-                          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                          borderColor: 'rgba(255, 99, 132, 1)',
-                          borderWidth: 1
-                      }]
-                  }
-              });
-          }
-      });
-  });
+    $(document).ready(function() {
+    // Retrieve domain and range data from HTML using jQuery
+    var domain = $('#graph-data').data('domain');
+    var range = $('#graph-data').data('range');
+
+    // Log raw JSON strings to the console for inspection
+    console.log("Raw domain data:", domain);
+    console.log("Raw range data:", range);
+
+   
+
+    // Render chart using domain and range data
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: domain,
+            datasets: [{
+                label: 'Voltage',
+                data: range,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+});
+
+
   
 </script>
   

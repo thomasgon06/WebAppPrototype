@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Enter a Module# {% endblock %}
+
+{% block bar %} Enter a Module# {% endblock %}
+
+{% block content %}
+
+<h3>Module Select</h3>
+
+<form method="POST" action="/data">
+    
+    <div class="form-group" style = "margin-bottom: 20px">
+        <label for="moduleInput">Enter a Module Number:</label>
+        <input type="number" class="form-control" id="moduleInput" name="moduleInput" step="any" required>
+        <div class="invalid-feedback">Please enter a number</div>
+    </div>
+  
+    <button type="submit" id="sendModule" class="btn btn-primary">Submit</button>
+</form>
+
+<style>
+   
+
+    #sendModule {
+        max-width: 150px; 
+    }
+
+    .form-control {
+        width: 200px; 
+    }
+</style>
+
+{% endblock %}
+

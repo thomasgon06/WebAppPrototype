@@ -4,6 +4,7 @@ import datetime
 import pprint
 import random
 import pprint
+import json
 from pymongo import MongoClient
 from datetime import datetime
 from flask import Flask, send_file
@@ -42,6 +43,10 @@ def voltagerange():
 @views.route('/graph')
 def returngraph():
     return render_template("graph.html")
+
+@views.route('/entermodule')
+def entermodule():
+    return render_template("entermodule.html")
 
 @views.route('/house')
 def returnimage():
@@ -193,13 +198,15 @@ def findvoltagerange():
 
     return render_template("results.html", docs = docs)
 
-@views.route('/data', methods=['GET'])
+@views.route('/data', methods=['POST'])
 def getgraphdata():
    
    meta = current_db.Metadata
    collection = current_db.SensorInfo
    
-   ModuleNumber = 43
+   #ModuleNumber = 43
+   ModuleNumber = int(request.form["moduleInput"])
+   
 
    metacollec = meta.find()
    for m in metacollec:
@@ -213,14 +220,17 @@ def getgraphdata():
     for doc in docs:
         if 'Date Recorded' in doc:  
             doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
-    x = []
-    y = []
+    d = []
+    r = []
 
     for doc in docs:
-        x.append(doc.get("Date Recorded"))
-        y.append(doc.get("Voltage"))
+        d.append(doc.get("Date Recorded"))
+        r.append(doc.get("Voltage"))
 
-    return jsonify({'x': x, 'y': y})
+    domain = json.dumps(d)
+    range = json.dumps(r)
+
+    return render_template("graph.html", domain=domain, range=range)
    
     
 
