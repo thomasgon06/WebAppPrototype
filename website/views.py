@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, jsonify
 import os
 import datetime
 import pprint
@@ -39,6 +39,10 @@ def voltage():
 def voltagerange():
     return render_template("voltagerange.html")
 
+@views.route('/graph')
+def returngraph():
+    return render_template("graph.html")
+
 @views.route('/house')
 def returnimage():
     return send_file('images/home.png', mimetype='image/png')
@@ -51,9 +55,18 @@ def returnicon():
 @views.route('/misbehaving')
 def misbehaving():
     collection = current_db.SensorInfo
-    badtemps = list(collection.find({"Temperature": {"$not": {"$gte": 18, "$lte": 28}}},{'_id': 0}).sort('Date Recorded', -1))
-    badvoltages = list(collection.find({"Voltage": {"$not": {"$gte": 1000, "$lte": 1400}}},{'_id': 0}).sort('Date Recorded', -1))
-    badadc = list(collection.find({"ADC": {"$not": {"$gte": 1200, "$lte": 1250}}},{'_id': 0}).sort('Date Recorded', -1))
+    meta = current_db.Metadata
+
+    metacollec = meta.find()
+    for m in metacollec:
+        mostrecent = m["Most Recent"]
+    startofrange = mostrecent.replace(hour=0, minute=0, second=0, microsecond=0)
+    endofrange = mostrecent.replace(hour=23, minute=59, second=59, microsecond=999999)
+
+    badtemps = list(collection.find({"Temperature": {"$not": {"$gte": 18, "$lte": 28}}, "Date Recorded" : {'$gte': startofrange,'$lte': endofrange}},{'_id': 0}).sort('Date Recorded', -1))
+    badvoltages = list(collection.find({"Voltage": {"$not": {"$gte": 1000, "$lte": 1400}}, "Date Recorded" : {'$gte': startofrange,'$lte': endofrange}},{'_id': 0}).sort('Date Recorded', -1))
+    badadc = list(collection.find({"ADC": {"$not": {"$gte": 1200, "$lte": 1250}}, "Date Recorded" : {'$gte': startofrange,'$lte': endofrange}},{'_id': 0}).sort('Date Recorded', -1))
+
     combined = badtemps + badvoltages + badadc
     docs = []
     [docs.append(x) for x in combined if x not in docs]
@@ -179,7 +192,35 @@ def findvoltagerange():
             doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
 
     return render_template("results.html", docs = docs)
+
+@views.route('/data', methods=['GET'])
+def getgraphdata():
    
+   meta = current_db.Metadata
+   collection = current_db.SensorInfo
+   
+   ModuleNumber = 43
+
+   metacollec = meta.find()
+   for m in metacollec:
+    mostrecent = m["Most Recent"]
+    print(type(mostrecent))
+
+    startofrange = mostrecent.replace(hour=0, minute=0, second=0, microsecond=0)
+    endofrange = mostrecent.replace(hour=23, minute=59, second=59, microsecond=999999)
+
+    docs = list(collection.find({ "Module #" : ModuleNumber, "Date Recorded" : {'$gte': startofrange,'$lte': endofrange}}, {'_id': 0}).sort('Date Recorded', -1))
+    for doc in docs:
+        if 'Date Recorded' in doc:  
+            doc['Date Recorded'] = doc['Date Recorded'].strftime('%m/%d/%Y %I:%M:%S.%f %p')
+    x = []
+    y = []
+
+    for doc in docs:
+        x.append(doc.get("Date Recorded"))
+        y.append(doc.get("Voltage"))
+
+    return jsonify({'x': x, 'y': y})
    
     
 
