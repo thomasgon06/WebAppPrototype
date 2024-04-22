@@ -73,12 +73,6 @@
     var domain = $('#graph-data').data('domain');
     var range = $('#graph-data').data('range');
 
-    // Log raw JSON strings to the console for inspection
-    console.log("Raw domain data:", domain);
-    console.log("Raw range data:", range);
-
-   
-
     // Render chart using domain and range data
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -90,16 +84,30 @@
                 data: range,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+                borderWidth: 1,
+                showLine: false
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Voltage'
+                    }
+                }
+            }
         }
     });
 });
 
 
-  
 </script>
   
-
   </body>
 </html>

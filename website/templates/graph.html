@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %} Graph {% endblock %}
+{% block title %} Module {{ ModuleNumber }} Voltage Graph {% endblock %}
 
-{% block bar %} Graph {% endblock %}
+{% block bar %} {{ mostrecent }} {% endblock %}
 
 {% block content %}
 
+
+<h3 style="text-align: center;">Module {{ ModuleNumber }} Voltage Graph</h3>
 <div id="graph-data" data-domain="{{ domain }}" data-range="{{ range }}"></div>
 
 

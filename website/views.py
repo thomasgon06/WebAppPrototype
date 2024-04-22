@@ -229,8 +229,9 @@ def getgraphdata():
 
     domain = json.dumps(d)
     range = json.dumps(r)
+    mostrecent = mostrecent.date().strftime("%B %d, %Y")
 
-    return render_template("graph.html", domain=domain, range=range)
+    return render_template("graph.html", domain=domain, range=range, ModuleNumber = ModuleNumber, mostrecent = mostrecent)
    
     
 
