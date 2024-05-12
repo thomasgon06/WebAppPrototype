@@ -11,7 +11,7 @@
 <form method="POST" action="/process_date">
     <div class="col-md-6">
         <label for="datetpicker">Enter a Date: </label>
-        <input type="date" id="datepicker" name="datepicker" class="form-control" style = "margin-bottom: 20px" required>
+        <input type="date" id="datepicker" name="datepicker" class="form-control">
     </div>
 
     <div class="row mt-3"> 
@@ -23,16 +23,31 @@
 
 <style>
    
+    #datepicker{
+        margin-bottom: 20px;
+        width: 210px; 
+    }
 
     #sendDateBtn {
         max-width: 150px; 
     }
 
-    .form-control {
-      width: 210px; 
-  }
-
 </style>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        flatpickr('#datepicker', {
+            dateFormat: "F j Y",
+            time_24hr: false,
+            allowInput:false
+        });
+    });
+</script>
 
 
 {% endblock %}

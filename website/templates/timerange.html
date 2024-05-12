@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-2">
             <label for="datetimepicker">Enter a Date and Time:</label>
-            <input type="date" id="datetimepicker" name="datetimepicker" class="form-control" style="margin-bottom: 20px" required>
+            <input type="date" id="datetimepicker" name="datetimepicker" class="form-control" required>
         </div>
 
         <div class="col-md-2">
@@ -34,7 +34,7 @@
     <div class="row">
         <div class="col-md-2">
             <label for="datetimepicker2">Enter a Date and Time:</label>
-            <input type="date" id="datetimepicker2" name="datetimepicker2" class="form-control" style="margin-bottom: 20px" required>
+            <input type="date" id="datetimepicker2" name="datetimepicker2" class="form-control" required>
         </div>
     
         <div class="col-md-2">
@@ -55,15 +55,43 @@
 </form>
 
 <style>
-   
-
     #sendDateTimeBtn {
         max-width: 150px; 
     }
 
     .form-control {
-        width: 210px; 
+        width: 100%; 
     }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+
 </style>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        flatpickr('#datetimepicker', {
+              enableTime: true,
+              dateFormat: "F j Y h:i K",
+              time_24hr: false,
+              allowInput: false
+          });
+
+          flatpickr('#datetimepicker2', {
+              enableTime: true,
+              dateFormat: "F j Y h:i K",
+              time_24hr: false,
+              allowInput: false
+          });
+    });
+    
+  </script>
+
+
 
 {% endblock %}

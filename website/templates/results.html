@@ -7,11 +7,18 @@
 {% block content %}
 <h1>Results</h1>
     <br>
-    <ul style="list-style-type: none; padding-left: 20px;">
+    <ul class="results-list">
     {% for doc in docs %}
         <li>{{ doc }}</li>
         <br>
     {% endfor %}
     </ul>
+
+<style>
+    .results-list {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+</style>
 
 {% endblock %}

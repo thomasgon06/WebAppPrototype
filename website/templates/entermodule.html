@@ -10,7 +10,7 @@
 
 <form method="POST" action="/data">
     
-    <div class="form-group" style = "margin-bottom: 20px">
+    <div class="form-group" id="enter-module">
         <label for="moduleInput">Enter a Module Number:</label>
         <input type="number" class="form-control" id="moduleInput" name="moduleInput" step="any" required>
         <div class="invalid-feedback">Please enter a number</div>
@@ -21,14 +21,18 @@
 
 <style>
    
+    #enter-module{
+        margin-bottom: 20px;
+    }
 
     #sendModule {
         max-width: 150px; 
     }
 
-    .form-control {
+    #moduleInput {
         width: 200px; 
     }
+
 </style>
 
 {% endblock %}

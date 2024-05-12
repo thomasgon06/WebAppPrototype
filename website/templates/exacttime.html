@@ -10,11 +10,10 @@
 <form method="POST" action="/process_exacttime">
   <div class="row">
 
-
     <div class="col-md-6">
 
     <label for="datetimepicker">Date and Time: </label>
-    <input type="date" id="datetimepicker" name="datetimepicker" class="form-control" style = "margin-bottom: 20px" required>
+    <input type="date" id="datetimepicker" name="datetimepicker" class="form-control">
     </div>
 
     <br>
@@ -39,14 +38,34 @@
 </form>
 
 <style>
-   
+  #datetimepicker{
+    margin-bottom: 20px;
+  }
 
   #sendDateTimeBtn {
       max-width: 150px; 
   }
 
   .form-control {
-      width: 210px; 
+      width: 250px; 
   }
 </style>
 {% endblock %}
+
+{% block script %}
+
+<script>
+  
+  $(document).ready(function () {
+    flatpickr('#datetimepicker', {
+      enableTime: true,
+      dateFormat: "F j Y h:i K",
+      time_24hr: false,
+      allowInput: false
+    });
+  });
+
+</script>
+
+{% endblock %}
+
