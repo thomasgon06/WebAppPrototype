@@ -1,0 +1,80 @@
+#datepicker{
+	margin-bottom: 20px;
+	width: 210px; 
+ }
+
+#sendDateBtn {
+	max-width: 150px; 
+}
+
+ 
+#enter-module{
+	margin-bottom: 20px;
+}
+
+#sendModule {
+	max-width: 150px; 
+}
+
+#moduleInput {
+	width: 200px; 
+}
+
+ 
+#datetimepicker{
+	margin-bottom: 20px;
+}
+
+#sendDateTimeBtn {
+	max-width: 150px; 
+}
+
+.custom-col {
+	padding: 10px; 
+}   
+
+.timeexactinput {
+    max-width: 250px; 
+    margin-left: 0;
+    margin-right: 0; 
+  }
+
+#graph-title {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.results-list {
+	list-style-type: none;
+	padding-left: 20px;
+}
+  
+
+.timerangeinput {
+	max-width: 800px; 
+	margin-left: 0;
+	margin-right: 0; 
+}
+
+.enter-voltage{
+	margin-bottom: 20px;
+}
+
+#sendVoltage {
+	max-width: 150px; 
+}
+
+#voltageInput{
+	width: 200px;
+}
+
+#endvoltageInput{
+	max-width: 200px;
+}
+
+.enter-day{
+	margin-bottom: 20px;
+}
+ 
+
+ 

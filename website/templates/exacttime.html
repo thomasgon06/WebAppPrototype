@@ -37,42 +37,8 @@
 
 </form>
 
-<style>
-  #datetimepicker{
-    margin-bottom: 20px;
-  }
-
-  #sendDateTimeBtn {
-      max-width: 150px; 
-  }
-
-  .custom-col {
-        padding: 10px; /* Adjust padding as needed */
-    }   
-
-  .timeexactinput {
-    max-width: 250px; /* Adjust the pixel size as needed */
-    margin-left: 0;
-    margin-right: 0; 
-  }
-
-</style>
 {% endblock %}
 
-{% block script %}
 
-<script>
-  
-  $(document).ready(function () {
-    flatpickr('#datetimepicker', {
-      enableTime: true,
-      dateFormat: "F j Y h:i K",
-      time_24hr: false,
-      allowInput: false
-    });
-  });
 
-</script>
-
-{% endblock %}
-
+ 

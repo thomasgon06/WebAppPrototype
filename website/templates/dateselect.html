@@ -22,37 +22,5 @@
 
 </form>
 
-<style>
-   
-    #datepicker{
-        margin-bottom: 20px;
-        width: 210px; 
-    }
-
-    #sendDateBtn {
-        max-width: 150px; 
-    }
-
-    .enter-day{
-        margin-bottom: 20px;
-    }
-
-</style>
-
-
 {% endblock %}
 
-{% block script %}
-
-<script>
-    $(document).ready(function () {
-        flatpickr('#datepicker', {
-            dateFormat: "F j Y",
-            time_24hr: false,
-            allowInput:false
-        });
-    });
-</script>
-
-
-{% endblock %}

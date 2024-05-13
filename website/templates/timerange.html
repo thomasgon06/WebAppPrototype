@@ -69,48 +69,5 @@
     </div>  
 </form>
 
-
-<style>
-    #sendDateTimeBtn {
-        max-width: 150px; 
-    }
-
-    .custom-col {
-        padding: 10px; /* Adjust padding as needed */
-    }   
-
-    .timerangeinput {
-        max-width: 800px; /* Adjust the pixel size as needed */
-        margin-left: 0;
-        margin-right: 0; 
-        
-    }
-
-</style>
-
-
 {% endblock %}
 
-{% block script %}
-<script>
-    $(document).ready(function () {
-        flatpickr('#datetimepicker', {
-              enableTime: true,
-              dateFormat: "F j Y h:i K",
-              time_24hr: false,
-              allowInput: false
-          });
-
-          flatpickr('#datetimepicker2', {
-              enableTime: true,
-              dateFormat: "F j Y h:i K",
-              time_24hr: false,
-              allowInput: false
-          });
-    });
-    
-  </script>
-
-
-
-{% endblock %}
