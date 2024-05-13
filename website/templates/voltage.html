@@ -10,7 +10,7 @@
 
 <form method="POST" action="/findvoltage">
     
-    <div class="form-group">
+    <div class="form-group enter-voltage">
         <label for="voltageInput">Enter a voltage:</label>
         <input type="number" class="form-control" id="voltageInput" name="voltageInput" step="any" required>
         <div class="invalid-feedback">Please enter a number</div>
@@ -20,14 +20,19 @@
 </form>
 
 <style>
+
+    .enter-voltage{
+        margin-bottom: 20px;
+    }
+
     #sendVoltage {
         max-width: 150px; 
     }
 
-    .form-control {
-        width: 200px; 
-        margin-bottom: 20px;
+    #voltageInput{
+        width: 200px;
     }
+
 </style>
 
 {% endblock %}

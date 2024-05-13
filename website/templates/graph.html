@@ -6,12 +6,10 @@
 
 {% block content %}
 
-<h3 id="graph-title" style="text-align: center;">Module {{ ModuleNumber }} Voltage Graph</h3>
+<h3 id="graph-title">Module {{ ModuleNumber }} Voltage Graph</h3>
 <div id="graph-data" data-domain="{{ domain }}" data-range="{{ range }}"></div>
 
 <canvas id="myChart"></canvas>
-
-{% endblock %}
 
 <style>
     #graph-title {
@@ -19,6 +17,9 @@
         text-align: center;
     }
 </style>
+
+{% endblock %}
+
 
 {% block script %}
 <script>

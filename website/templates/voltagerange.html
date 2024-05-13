@@ -9,31 +9,37 @@
 <form method="POST" action="/findvoltagerange">
     
     <h3>Start of Range</h3>
-    <div class="form-group">
+    <div class="form-group enter-voltage">
         <label for="voltageInput">Enter a voltage:</label>
-        <input type="number" class="form-control" id="voltageInput" name="voltageInput" step="any" required>
+        <input type="number" class="form-control" id="voltageInput" name="voltageInput" step="any">
         <div class="invalid-feedback">Please enter a number</div>
     </div>
-
+    
     <h3>End of Range</h3>
-    <div class="form-group">
+    <div class="form-group enter-voltage">
         <label for="endvoltageInput">Enter a voltage:</label>
-        <input type="number" class="form-control" id="endvoltageInput" name="endvoltageInput" step="any" required>
+        <input type="number" class="form-control" id="endvoltageInput" name="endvoltageInput" step="any">
         <div class="invalid-feedback">Please enter a number</div>
     </div>
-  
+    
     <button type="submit" id="sendVoltage" class="btn btn-primary">Submit</button>
-</form>
+    
 
 <style>
     #sendVoltage {
         max-width: 150px; 
     }
+    #voltageInput{
+        max-width: 200px;
+    }
+    #endvoltageInput{
+        max-width: 200px;
+    }
 
-    .form-control {
-        width: 200px; 
+    .enter-voltage{
         margin-bottom: 20px;
     }
+
 </style>
 
 {% endblock %}

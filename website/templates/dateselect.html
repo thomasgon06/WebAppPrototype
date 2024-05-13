@@ -6,19 +6,20 @@
 
 {% block content %}
 
-<h3>Date Select</h3>
 
 <form method="POST" action="/process_date">
-    <div class="col-md-6">
-        <label for="datetpicker">Enter a Date: </label>
-        <input type="date" id="datepicker" name="datepicker" class="form-control">
+    
+    <h3>Date Select</h3>
+
+    <div class="form-group enter-day">
+        <label for="datepicker">Enter a Date: </label>
+        <input type="text" id="datepicker" name="datepicker" class="form-control">
     </div>
 
-    <div class="row mt-3"> 
-        <div class="col-md-6">
-            <button type="submit" id="sendDateBtn" class="btn btn-primary">Submit</button>
-        </div>
+    <button type="submit" id="sendDateBtn" class="btn btn-primary">Submit</button>
+
     </div>
+
 </form>
 
 <style>
@@ -30,6 +31,10 @@
 
     #sendDateBtn {
         max-width: 150px; 
+    }
+
+    .enter-day{
+        margin-bottom: 20px;
     }
 
 </style>

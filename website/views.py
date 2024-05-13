@@ -1,9 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify
 import os
 import datetime
-import pprint
 import random
-import pprint
 import json
 from pymongo import MongoClient
 from datetime import datetime
@@ -99,7 +97,6 @@ def alldata():
 @views.route('/process_date', methods=['POST'])
 def process_datet():
     datetime_string = request.form['datepicker']
-    print(datetime_string)
     datetime_object = datetime.strptime(datetime_string, "%B %d %Y")
    
 
@@ -129,7 +126,6 @@ def process_exacttime():
 
     micro = mili * 1000
     requestedtime = datetime_object.replace(second=sec, microsecond=micro)
-    print(requestedtime)
 
     docs = list(collection.find({ "Date Recorded" : requestedtime }, {'_id': 0}).sort('Date Recorded', -1))
     for doc in docs:
@@ -204,14 +200,12 @@ def getgraphdata():
    meta = current_db.Metadata
    collection = current_db.SensorInfo
    
-   #ModuleNumber = 43
    ModuleNumber = int(request.form["moduleInput"])
    
 
    metacollec = meta.find()
    for m in metacollec:
     mostrecent = m["Most Recent"]
-    print(type(mostrecent))
 
     startofrange = mostrecent.replace(hour=0, minute=0, second=0, microsecond=0)
     endofrange = mostrecent.replace(hour=23, minute=59, second=59, microsecond=999999)
