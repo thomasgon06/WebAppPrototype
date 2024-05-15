@@ -9,17 +9,17 @@ This web app is a prototype designed to query a MongoDB database and retrieve se
 module number. 
 
 ## Software Stack
-    - Primary Programming Language: Python
-    - Database Managment System: MongoDB
-    - Web Framework: Flask
-    - Object-Docment Mapping Library: Pymongo
+- Primary Programming Language: Python
+- Database Managment System: MongoDB
+- Web Framework: Flask
+- Object-Docment Mapping Library: Pymongo
     
 ## Database Structure
-    - This web app is designed to work with a MongoDB database with two collections. The first is called "SensorInfo" and it is where the documents are
-    stored. Additionally,there is an index placed on the documents’ Date Recorded attribute. Due to MongoDB databases being non-relational, the number and
-    types of attributes each document has can vary. But, at the moment, each document has eight attributes. These attributes are: ID, Date Recorded, Mooring 
-    Line, Module #, Photo Multiplier #, Voltage, temperature and ADC. The other collection is called "Metadata", this collection contains one document with 
-    one attribute called Most Recent. It is used to keep track of what day and time data was last recorded. 
+- This web app is designed to work with a MongoDB database with two collections. The first is called "SensorInfo" and it is where the documents are
+  stored. Additionally,there is an index placed on the documents’ Date Recorded attribute. Due to MongoDB databases being non-relational, the number and
+  types of attributes each document has can vary. But, at the moment, each document has eight attributes. These attributes are: ID, Date Recorded, Mooring 
+  Line, Module #, Photo Multiplier #, Voltage, temperature and ADC. The other collection is called "Metadata", this collection contains one document with 
+  one attribute called Most Recent. It is used to keep track of what day and time data was last recorded. 
 
 ## External Tools Used
 
@@ -218,21 +218,21 @@ module number.
 
 ## Installation Instructions
 
-    1. Create a python virtual environment using the command `python -m venv myenv`, where `myenv` can be any name you choose.
+1. Create a python virtual environment using the command `python -m venv myenv`, where `myenv` can be any name you choose.
 
-    2. Activate the virtual environment by using the command `myenv\Scripts\activate` on Windows or `source myenv/bin/activate` on Unix-based systems.
+2. Activate the virtual environment by using the command `myenv\Scripts\activate` on Windows or `source myenv/bin/activate` on Unix-based systems.
 
-    3. Install all of the required packages by running the command `pip install -r requirements.txt`. Note: this also includes all of the packages needed for the helper scripts and database script projects.
+3. Install all of the required packages by running the command `pip install -r requirements.txt`. Note: this also includes all of the packages needed for the helper scripts and database script projects.
 
-    4. Download this project and the Helper Scripts Project.
+4. Download this project and the Helper Scripts Project.
 
-    5. Download and configure MongoDB using this [tutorial](https://www.mongodb.com/docs/manual/installation/).
+5. Download and configure MongoDB using this [tutorial](https://www.mongodb.com/docs/manual/installation/).
 
-    6. Use MongoDB Compass to create a `SensorData` database with two collections, `Metadata` and `Sensorinfo`.
+6. Use MongoDB Compass to create a `SensorData` database with two collections, `Metadata` and `Sensorinfo`.
 
-    7. Use the Test data helper script to fill the database up.
+7. Use the Test data helper script to fill the database up.
 
-    8. Configure your firewall so that port 80 is open.
+8. Configure your firewall so that port 80 is open.
 
-    9. Navigate to the directory where the web app is, then run the command `gunicorn --bind 0.0.0.0:80 -k 'gthread' wsgi:app` to deploy it.
+9. Navigate to the directory where the web app is, then run the command `gunicorn --bind 0.0.0.0:80 -k 'gthread' wsgi:app` to deploy it.
 
