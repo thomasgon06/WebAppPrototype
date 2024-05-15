@@ -21,6 +21,27 @@ module number.
     Line, Module #, Photo Multiplier #, Voltage, temperature and ADC. The other collection is called "Metadata", this collection contains one document with 
     one attribute called Most Recent. It is used to keep track of what day and time data was last recorded. 
 
+## External Tools Used
+
+- **Pymongo**:
+  - Pymongo is the Object-Document Mapping Library used to access the database. Its documentation can be found [here](https://pymongo.readthedocs.io/en/stable/).
+
+- **Flask**:
+    - Flask is the web framework that powers the application. Its documentation can be found [here](https://flask.palletsprojects.com/en/3.0.x/).
+    
+- **Gunicorn**:
+    - Gunicorn is a Python WSGI HTTP server used to host the web application.  Its documentation can be found [here](https://docs.gunicorn.org/en/stable/).
+    
+- **Bootstrap 5.3**:
+    - Bootstrap is a front-end framework used to style our web application and provide some interactivity. Its documentation can be found [here](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
+    
+- **Flatpickr**:
+    - Flatpicker is a date and time picker. Its documentation can be found [here](https://flatpickr.js.org/). 
+    
+- **Chart.js**:
+    - Chatjs is a JavaScript library used for making charts. In this application, it is used to create voltage graphs. Its documentation can be found [here] (https://www.chartjs.org/docs/latest/getting-started/).
+
+
 ## File Structure
 
 - **Root**:
